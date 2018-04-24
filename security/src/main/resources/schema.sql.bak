@@ -1,0 +1,17 @@
+CREATE TABLE users
+(
+  username VARCHAR(256) PRIMARY KEY,
+  password VARCHAR(256),
+  enabled  TINYINT(1)
+);
+
+CREATE TABLE authorities
+(
+  id        INT AUTO_INCREMENT PRIMARY KEY,
+  username  VARCHAR(256),
+  authority VARCHAR(256),
+  CONSTRAINT fk_authorities_users FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE UNIQUE INDEX ix_auth_username
+  ON authorities (username, authority);
