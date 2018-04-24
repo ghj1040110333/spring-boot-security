@@ -26,7 +26,7 @@ public class SecurityController {
         return "admin";
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping("/foo")
     public String foo() {
         return "foo";
